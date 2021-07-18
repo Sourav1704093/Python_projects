@@ -8,13 +8,13 @@ def resize_image(image, new_width=100):
     width, height = image.size
     ratio = height/width
     new_height = int(new_width * ratio)
-    resized_image = image.resize((new_width, new_height))
-    return(resized_image)
+    resized_img = image.resize((new_width, new_height))
+    return(resized_img)
 
 # convert each pixel to grayscale
-def grayify(image):
-    grayscale_image = image.convert("L")
-    return(grayscale_image)
+def to_gray(image):
+    grayscale_img = image.convert("L")
+    return(grayscale_img)
     
 # convert pixels to a string of ascii characters
 def pixels_to_ascii(image):
@@ -32,7 +32,7 @@ def main(new_width=100):
         return
   
     # convert image to ascii    
-    new_image_data = pixels_to_ascii(grayify(resize_image(image)))
+    new_image_data = pixels_to_ascii(to_gray(resize_image(image)))
     
     # format
     pixel_count = len(new_image_data)  
